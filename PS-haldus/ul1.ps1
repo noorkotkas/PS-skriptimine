@@ -2,27 +2,18 @@
     $eesnimi = Read-Host "Sisesta oma eesnimi (ladina tähtedega):"
     $perenimi = Read-Host "Sisesta oma perenimi (ladina tähtedega):"
 
-    $ladinaTahed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    $ladinaTahed = [regex]::IsMatch($eesnimi, "^[a-zA-Z]+$") -and [regex]::IsMatch($perenimi, "^[a-zA-Z]+$")
 
-    $nimeError = $false
-
-    foreach ($t2ht in $eesnimi.ToCharArray()) {
-        if ($ladinaTahed -notcontains $t2ht) {
-            Write-Host "Viga! Eesnimi peab koosnema ainult ladina tähtedest."
-            $nimeError = $true
-            break
-        }
+    if (-not $ladinaTahed) {
+        Write-Host "Viga! Nimi peab koosnema ainult ladina tähtedest."
     }
 
-    foreach ($t2ht in $perenimi.ToCharArray()) {
-        if ($ladinaTahed -notcontains $t2ht) {
-            Write-Host "Viga! Perenimi peab koosnema ainult ladina tähtedest."
-            $nimeError = $true
-            break
-        }
-    }
+} while (-not $ladinaTahed)
 
-} while ($nimeError)
+# Loome kasutajanime
+$kasutajanimi = $eesnimi.ToLower() + $perenimi.ToLower()
 
-Write-Host "Eesnimi: $eesnimi"
-Write-Host "Perenimi: $perenimi"
+# Loome uue Windowsi kasutaja
+New-LocalUser -Name $kasutajanimi -Description "Kasutaja loodud PowerShell skriptiga"
+
+Write-Host "Kasutaja $kasutajanimi loodud edukalt!"
