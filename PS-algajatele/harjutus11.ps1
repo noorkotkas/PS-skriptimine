@@ -1,4 +1,5 @@
-﻿[int]$n1 = Read-Host "Enter first number"
+﻿#
+[int]$n1 = Read-Host "Enter first number"
 [int]$n2 = Read-Host "Enter second number"
 
 Write-Host "Calculator" -ForegroundColor Green

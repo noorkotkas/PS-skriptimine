@@ -1,4 +1,5 @@
-﻿$csv = Import-Csv C:\temp\students.csv
+﻿#
+$csv = Import-Csv C:\temp\students.csv
 
 $result = foreach ($c in $csv) {
     $age = [int]$c.Age

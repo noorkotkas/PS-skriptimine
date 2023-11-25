@@ -1,4 +1,5 @@
-﻿$array1 = @(1,2,3)
+﻿#
+$array1 = @(1,2,3)
 $array2 = @(4,5,6)
 $array3 = @()
 $array3 += $array1[0] + $array2[0]

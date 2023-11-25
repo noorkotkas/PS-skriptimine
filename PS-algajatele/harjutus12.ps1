@@ -1,4 +1,5 @@
-﻿function CountService {
+﻿#
+function CountService {
     param (
         [string]$status
     )

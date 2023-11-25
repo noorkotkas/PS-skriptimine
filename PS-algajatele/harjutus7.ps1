@@ -1,4 +1,5 @@
-﻿$groups = @("Red", "Green", "Yellow", "Blue")
+﻿#
+$groups = @("Red", "Green", "Yellow", "Blue")
 $result = 1..20 | ForEach-Object {
     $g = Get-Random $groups
     [PSCustomObject]@{

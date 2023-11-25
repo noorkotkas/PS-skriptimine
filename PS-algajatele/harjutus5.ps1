@@ -1,4 +1,5 @@
-﻿# Get-Process command
+﻿#
+# Get-Process command
 $notepadProcess = Get-Process -Name "notepad" | Select-Object ProcessName, Id
 $notepadProcess
 

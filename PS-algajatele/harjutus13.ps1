@@ -1,4 +1,5 @@
-﻿function MainMenu {
+﻿#
+function MainMenu {
     Clear-Host
     Write-Host "`t`t`tArea Calculator" -ForegroundColor Green
     Write-Host "`n`t`t`tMain Menu" -ForegroundColor Yellow
